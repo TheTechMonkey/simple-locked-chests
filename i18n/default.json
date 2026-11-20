@@ -1,15 +1,21 @@
 {
-  "Open": "Open",
-  "Locked": "Locked",
-  "Unlocked": "Unlocked",
-  "Unowned": "Unowned", 
+  "Thing_Chest": "chest",
+  "Thing_Storage": "storage",
+  "Thing_Door": "door",
+
+  "Status_Locked": "Locked",
+  "Status_Open": "Open",
+  "Owner_Label": "Owner",
+  "Status_Label": "Lock",
   "Unknown_Player": "Unknown Player",
-  "Owner_Header": "Owner",
-  "Lock_Header": "Lock State",
-  "No_Access_Dialogue": "{{Name}} is the owner and has restricted this chest.",
-  "Lock_Chest_Question": "Do you want to lock this chest?",
-  "Unlock_Chest_Question": "Do you want to unlock this chest?",
-  "Chest_Locked_Message": "Chest has been locked.",
-  "Chest_Unlocked_Message": "Chest has been unlocked.",
-  "Error_Managing_Lock": "Error managing chest lock."
+
+  "No_Access": "{{Name}} is the owner and has locked this {{Thing}}.",
+  "Not_Owner": "{{Name}} owns this {{Thing}}. Only they can lock or unlock it.",
+
+  "Lock_Question": "This {{Thing}} is open. Lock it?",
+  "Unlock_Question": "This {{Thing}} is locked. Unlock it?",
+  "Yes": "Yes",
+  "No": "No",
+  "Locked_Message": "The {{Thing}} is now locked.",
+  "Unlocked_Message": "The {{Thing}} is now unlocked."
 }

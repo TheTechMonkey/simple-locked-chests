@@ -3,12 +3,18 @@
   <PropertyGroup>
     <AssemblyName>Locked Chests</AssemblyName>
     <RootNamespace>LockChests</RootNamespace>
-    <Version>2.0.1</Version>
+    <Version>2.2.0</Version>
     <TargetFramework>net6.0</TargetFramework>
     <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
     <EnableHarmony>true</EnableHarmony>
   </PropertyGroup>
+
+  <ItemGroup>
+    <!-- local reference folders that aren't part of the mod -->
+    <Compile Remove="decompiled/**;original-2.0.1/**" />
+    <None Remove="decompiled/**;original-2.0.1/**" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Pathoschild.Stardew.ModBuildConfig" Version="4.4.0" />

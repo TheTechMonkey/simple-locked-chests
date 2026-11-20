@@ -1,9 +1,10 @@
 {
   "Name": "Simple Locked Chests",
   "Author": "TechMonkey",
-  "Version": "2.0.1",
-  "Description": "Simple chest locks: Open or Locked. First opener becomes the owner. GMCM support. Compatible with ChestsAnywhere and AllChestsMenu.",
+  "Version": "2.2.0",
+  "Description": "Lock chests, storage furniture and your house or shed door. First opener becomes the owner. Locked chests are hidden from other players in Chests Anywhere and All Chests Menu. GMCM support.",
   "UniqueID": "TechMonkey.LockedChests",
   "EntryDll": "Locked Chests.dll",
-  "MinimumApiVersion": "4.0.0"
+  "MinimumApiVersion": "4.0.0",
+  "UpdateKeys": [ "Nexus:37358" ]
 }

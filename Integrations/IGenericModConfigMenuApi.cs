@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 using StardewModdingAPI;
 using StardewModdingAPI.Utilities;
 
-namespace LockChests;
+namespace LockChests.Integrations;
 
 public interface IGenericModConfigMenuApi
 {
