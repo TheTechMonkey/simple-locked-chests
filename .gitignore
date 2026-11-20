@@ -1,0 +1,6 @@
+bin/
+obj/
+.vs/
+*.user
+decompiled/
+original-2.0.1/

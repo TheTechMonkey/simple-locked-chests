@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <AssemblyName>Locked Chests</AssemblyName>
+    <RootNamespace>LockChests</RootNamespace>
+    <Version>2.0.1</Version>
+    <TargetFramework>net6.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <EnableHarmony>true</EnableHarmony>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Pathoschild.Stardew.ModBuildConfig" Version="4.4.0" />
+  </ItemGroup>
+
+</Project>

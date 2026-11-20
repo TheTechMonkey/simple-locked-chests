@@ -1,0 +1,9 @@
+{
+  "Name": "Simple Locked Chests",
+  "Author": "TechMonkey",
+  "Version": "2.0.1",
+  "Description": "Simple chest locks: Open or Locked. First opener becomes the owner. GMCM support. Compatible with ChestsAnywhere and AllChestsMenu.",
+  "UniqueID": "TechMonkey.LockedChests",
+  "EntryDll": "Locked Chests.dll",
+  "MinimumApiVersion": "4.0.0"
+}
