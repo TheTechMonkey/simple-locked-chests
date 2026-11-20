@@ -76,7 +76,7 @@ internal sealed class LockIconRenderer
 		if (lockable.State != LockState.Locked || lockable.Owner == LockData.NoOwner)
 			return;
 
-		bool isMine = lockable.IsOwnedBy(Game1.player);
+		bool isMine = LockRules.IsOwnerOrSpouse(lockable, Game1.player);
 		if (isMine ? !config.ShowMyLockIcon : !config.ShowOthersLockIcon)
 			return;
 

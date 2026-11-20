@@ -35,12 +35,6 @@ internal sealed class Lockable
 		this.FixedOwner = fixedOwner;
 	}
 
-	/// <summary>Whether the given player owns this.</summary>
-	public bool IsOwnedBy(Farmer player)
-	{
-		return this.Owner == player.UniqueMultiplayerID;
-	}
-
 	/// <summary>Make the given player the owner, if nobody owns it yet and it can be claimed.</summary>
 	public void ClaimIfUnowned(Farmer player)
 	{

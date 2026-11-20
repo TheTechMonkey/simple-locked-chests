@@ -66,7 +66,7 @@ internal sealed class HoverTextRenderer
 		if (lockable.Kind == LockableKind.Door && lockable.State != LockState.Locked)
 			return null;
 
-		bool isMine = lockable.IsOwnedBy(Game1.player);
+		bool isMine = LockRules.IsOwnerOrSpouse(lockable, Game1.player);
 		if (isMine ? !config.ShowMyChestHoverText : !config.ShowOthersChestHoverText)
 			return null;
 

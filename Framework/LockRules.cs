@@ -21,16 +21,28 @@ internal static class LockRules
 		return player.IsMainPlayer && hostOverrideEnabled();
 	}
 
-	/// <summary>Whether the player is kept out: it's locked, someone else owns it, and the host override doesn't apply.</summary>
-	public static bool IsLockedAgainst(Lockable? lockable, Farmer player)
+	/// <summary>Whether two players are married to each other. Engagement doesn't count.</summary>
+	private static bool AreMarried(Farmer player, long otherPlayerId)
 	{
-		if (lockable is null || lockable.State != LockState.Locked)
-			return false;
+		long playerId = player.UniqueMultiplayerID;
+		return player.team.IsMarried(playerId) && player.team.GetSpouse(playerId) == otherPlayerId;
+	}
 
+	/// <summary>Whether the player owns it or is married to the owner. Spouses are full co-owners, checked live, so a divorce ends access.</summary>
+	public static bool IsOwnerOrSpouse(Lockable lockable, Farmer player)
+	{
 		long owner = lockable.Owner;
 		return owner != LockData.NoOwner
-			&& owner != player.UniqueMultiplayerID
-			&& !HasHostOverride(player);
+			&& (owner == player.UniqueMultiplayerID || AreMarried(player, owner));
+	}
+
+	/// <summary>Whether the player is kept out: it's locked, it belongs to someone who isn't them or their spouse, and the host override doesn't apply.</summary>
+	public static bool IsLockedAgainst(Lockable? lockable, Farmer player)
+	{
+		if (lockable is null || lockable.State != LockState.Locked || lockable.Owner == LockData.NoOwner)
+			return false;
+
+		return !IsOwnerOrSpouse(lockable, player) && !HasHostOverride(player);
 	}
 
 	/// <summary>Whether the local player is kept out.</summary>
@@ -39,10 +51,10 @@ internal static class LockRules
 		return IsLockedAgainst(lockable, Game1.player);
 	}
 
-	/// <summary>Whether the player can lock and unlock it: they own it, nobody owns it yet, or the host override applies.</summary>
+	/// <summary>Whether the player can lock and unlock it: they or their spouse own it, nobody owns it yet, or the host override applies.</summary>
 	public static bool CanManage(Lockable lockable, Farmer player)
 	{
-		return lockable.IsOwnedBy(player)
+		return IsOwnerOrSpouse(lockable, player)
 			|| lockable.IsClaimable
 			|| HasHostOverride(player);
 	}
